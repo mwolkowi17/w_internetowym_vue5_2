@@ -15,7 +15,7 @@ const props = defineProps({
 const ifButtonKoniecQuizzuOnFocus = ref(false)
 
 onMounted(() => {
-  const elementToFocus = document.querySelector(".pojedyncza-odpowiedz")
+  const elementToFocus = document.querySelector(".pytanie1")
   if (elementToFocus && props.ifButtonOnFocusQuizz1 === true) {
     elementToFocus.focus();
   }
