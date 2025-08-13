@@ -139,13 +139,37 @@ function sprawdzOdpowiedz() {
   }
 }
 
+const klodka1image = new URL('../assets/klodka1.png', import.meta.url).href
+const buzka1image = new URL('../assets/buzka1.png', import.meta.url).href
+const malpa1image = new URL('../assets/malpa1.png', import.meta.url).href
+
+const pytanieToDisplay = (miejsce) => {
+  let textToDisplayPytanie
+  if (miejsce === 1) {
+    textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>" + "<img class='klodka2' src=" + klodka1image + ">"
+  }
+  else if (miejsce === 7) {
+    textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>" + "<img class='buzka2' src=" + buzka1image + ">"
+  }
+  else if (miejsce === 10) {
+    textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>" + "<img class='malpa2' src=" + malpa1image + ">"
+  }
+  else if (miejsce === 12) {
+    textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>" + "<img class='malpa3' src=" + malpa1image + ">"
+  }
+  else {
+    textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>"
+  }
+  return textToDisplayPytanie
+}
+
 </script>
 <template>
   <div class="planszaQuizz1 " :class="eksp1[quizz_assets_data.pokaz_zadanie_2(props.miejsceNaPlanszy).pytanie]"
     role="img" alt="tło" aria-label="pytanie">
-  <h1 class="sr-only">Quizz</h1>
+    <h1 class="sr-only">Quizz</h1>
   </div>
-  <h2 class="pytanie1">{{ quizz_assets_data.pokaz_zadanie_2(props.miejsceNaPlanszy).tresc }}</h2>
+      <div class="pytanie1" v-html="pytanieToDisplay(props.miejsceNaPlanszy)" tabindex="0"></div>
 
   <!-- <ul class="lista-odpowiedzi" role="presentation"> -->
   <ul class="lista-odpowiedzi" role="list">
@@ -222,7 +246,7 @@ function sprawdzOdpowiedz() {
   top: 100px;
 }
 
-.sr-only{
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -235,49 +259,49 @@ function sprawdzOdpowiedz() {
 }
 
 .planszaQuizz1nr1 {
-  background-image: url("../assets/pytanie1.png");
+  background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr2 {
-  background-image: url("../assets/pytanie2.png");
+  background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr3 {
-  background-image: url("../assets/pytanie3.png");
+  background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr4 {
-  background-image: url("../assets/pytanie4.png");
+  background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr5 {
-  background-image: url("../assets/pytanie5.png");
+  background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr6 {
-  background-image: url("../assets/pytanie6.png");
+  background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr7 {
-  background-image: url("../assets/pytanie7.png");
+  background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr8 {
-  background-image: url("../assets/pytanie8.png");
+  background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr9 {
-  background-image: url("../assets/pytanie9.png");
+  background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr10 {
-  background-image: url("../assets/pytanie10.png");
+  background-image: url("../assets/pytanie_puste.png");
 }
 
 
 .pytanie1 {
   color: rgb(29, 56, 80);
-  opacity: 0;
+  opacity: 1;
   /* tutaj na potrzeby czytnika można dać 0 */
   font-size: 42px;
   font-style: bold;
@@ -285,8 +309,36 @@ function sprawdzOdpowiedz() {
   font-family: "Proxima Nova", sans-serif;
   white-space: nowrap;
   position: absolute;
-  top: 305px;
+  top: 332px;
   left: 205px;
+  padding: 20px;
+}
+
+.pytanie1:focus{
+  outline: 5px solid #9a009e !important;
+}
+
+.pytanie1:deep(.klodka2){
+   position:absolute;
+   top: 3px;
+   left: 294px; 
+}
+
+.pytanie1:deep(.buzka2){
+   position:absolute;
+   top: 2px;
+   left: 555px;
+   
+}
+
+.pytanie1:deep(.malpa2){
+   position:absolute;
+   left: 318px;
+}
+
+.pytanie1:deep(.malpa3){
+   position:absolute;
+   left: 350px;
 }
 
 ul {
