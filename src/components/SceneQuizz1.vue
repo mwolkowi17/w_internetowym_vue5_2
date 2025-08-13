@@ -111,7 +111,7 @@ function sprawdzOdpowiedz() {
 
     const buttonVis = new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(document.querySelector(".button-dalej-dobrze"))
+        resolve(document.querySelector(".info-dobrze"))
       }, 300);
     })
     if (ifButtonKoniecQuizzuOnFocus.value === true) {
@@ -212,8 +212,10 @@ const pytanieToDisplay = (miejsce) => {
     @keydown.enter="ifButtonKoniecQuizzuOnFocus = true; sprawdzOdpowiedz()" role="button" alt="przycisk sprawdź">Sprawdź
     odpowiedź</button>
   <div class="plansza-dobrze" v-if="if_odpowiedz_dobrze">
+    <div class="info" tabindex="0">
     <p class="naglowek-after-quizz naglowek-dobrze">BRAWO!</p>
     <p class="napis-odpowiedz napis-dobrze">Prawidłowa odpowiedź.</p>
+    </div>
   </div>
   <button class="button-dalej-dobrze my-button anim1" v-if="if_button_dalej_dobrze" @click="if_odpowiedz_dobrze = false,
     if_button_dalej_dobrze = false,
@@ -222,8 +224,10 @@ const pytanieToDisplay = (miejsce) => {
       if_button_dalej_dobrze = false,
       $emit('koniec-quizz-focus')" role="button">Dalej</button>
   <div class="plansza-zle" v-if="if_odpowiedz_zle">
+    <div class="info" tabindex="0">
     <p class="naglowek-after-quizz naglowek-zle">Źle!</p>
     <p class="napis-odpowiedz napis-zle">Błędna odpowiedź.</p>
+    </div>
   </div>
   <button class="button-dalej-dobrze my-button anim1" v-if="if_button_dalej_zle" @click="if_odpowiedz_zle = false,
     if_button_dalej_zle = false,
@@ -466,6 +470,18 @@ li {
   top: 275px;
 }
 
+.info{
+  height: 273px;
+  width: 812px;
+  position: absolute;
+  left: 200px;
+  top: 50px;
+}
+
+.info:focus{
+  outline: 5px solid #08e926 !important;
+}
+
 .plansza-zle {
   background-image: url("../assets/KOMUNIKAT_zla_odp.png");
   background-size: 1212px 533px;
@@ -483,7 +499,7 @@ li {
   font-style: bold;
   font-weight: 600;
   font-family: "Proxima Nova", sans-serif;
-  top: 5px;
+  top: -90px;
   height: 88px;
   width: 333px;
   position: absolute;
@@ -491,11 +507,11 @@ li {
 }
 
 .naglowek-dobrze {
-  left: 410px;
+  left: 230px;
 }
 
 .naglowek-zle {
-  left: 520px;
+  left: 330px;
 }
 
 .napis-odpowiedz {
@@ -505,7 +521,7 @@ li {
   font-weight: 400;
   font-family: "Proxima Nova", sans-serif;
   white-space: nowrap;
-  top: 145px;
+  top: 80px;
 
   height: 88px;
   width: 333px;
@@ -514,11 +530,11 @@ li {
 }
 
 .napis-dobrze {
-  left: 250px;
+  left: 50px;
 }
 
 .napis-zle {
-  left: 310px;
+  left:130px;
 }
 
 .button-dalej-dobrze {

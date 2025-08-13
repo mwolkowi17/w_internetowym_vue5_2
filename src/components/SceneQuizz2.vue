@@ -15,7 +15,7 @@ const props = defineProps({
 const ifButtonKoniecQuizzuOnFocus = ref(false)
 
 onMounted(() => {
-    const elementToFocus = document.querySelector(".pojedyncza-odpowiedz")
+    const elementToFocus = document.querySelector(".pytanie1")
     if (elementToFocus && props.ifButtonOnFocusQuizz2) {
         elementToFocus.focus();
     }
@@ -137,7 +137,7 @@ function sprawdzOdpowiedz() {
 
         const buttonVis = new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(document.querySelector(".button-dalej-dobrze"))
+                resolve(document.querySelector(".info"))
             }, 300);
         })
         if (ifButtonKoniecQuizzuOnFocus.value === true) {
@@ -158,7 +158,7 @@ function sprawdzOdpowiedz() {
 
         const buttonVis2 = new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(document.querySelector(".button-dalej-dobrze"))
+                resolve(document.querySelector(".info"))
             }, 300);
         })
         if (ifButtonKoniecQuizzuOnFocus.value === true) {
@@ -171,11 +171,11 @@ function sprawdzOdpowiedz() {
 <template>
     <div class="planszaQuizz1 " :class="eksp1[quizz_assets_data.pokaz_zadanie_2(props.miejsceNaPlanszy).pytanie]"
         role="img" aria-label="pytanie">
-      <h1 class="sr-only">Quizz</h1>
+        <h1 class="sr-only">Quizz</h1>
     </div>
-       
+
     <!-- <div class="planszaQuizz1 " :class="eksp1[9]"></div> -->
-    <h2 class="pytanie1">{{ quizz_assets_data.pokaz_zadanie_2(props.miejsceNaPlanszy).tresc }}</h2>
+    <h2 class="pytanie1" tabindex="0">{{ quizz_assets_data.pokaz_zadanie_2(props.miejsceNaPlanszy).tresc }}</h2>
     <ul class="lista-odpowiedzi" role="list">
         <li>
             <div class="pojedyncza-odpowiedz" role="checkbox" tabindex="0" :aria-checked="zaznaczenieOdpowiedzi1"
@@ -244,21 +244,25 @@ function sprawdzOdpowiedz() {
         @keydown.enter="ifButtonKoniecQuizzuOnFocus = true; sprawdzOdpowiedz" role="button">Sprawdź
         odpowiedź</button>
     <div class="plansza-dobrze" v-if="if_odpowiedz_dobrze">
-        <p class="naglowek-after-quizz naglowek-dobrze">BRAWO!</p>
-        <p class="napis-odpowiedz napis-dobrze">Prawidłowa odpowiedź.</p>
+        <div class="info" tabindex="0">
+            <p class="naglowek-after-quizz naglowek-dobrze">BRAWO!</p>
+            <p class="napis-odpowiedz napis-dobrze">Prawidłowa odpowiedź.</p>
+        </div>
     </div>
     <button class="button-dalej-dobrze my-button anim1" v-if="if_button_dalej_dobrze" @click="if_odpowiedz_dobrze = false,
         if_button_dalej_dobrze = false,
         $emit('koniec-quizz')" @keydown.enter="if_odpowiedz_dobrze = false,
-        if_button_dalej_dobrze = false, $emit('koniec-quizz-focus')"  role="button">Dalej</button>
+            if_button_dalej_dobrze = false, $emit('koniec-quizz-focus')" role="button">Dalej</button>
     <div class="plansza-zle" v-if="if_odpowiedz_zle">
+         <div class="info" tabindex="0">
         <p class="naglowek-after-quizz naglowek-zle">Źle!</p>
         <p class="napis-odpowiedz napis-zle">Błędna odpowiedź.</p>
+        </div>
     </div>
     <button class="button-dalej-dobrze my-button anim1" v-if="if_button_dalej_zle" @click="if_odpowiedz_zle = false,
         if_button_dalej_zle = false,
         $emit('koniec-quizz')" @keydown.enter="if_odpowiedz_dobrze = false,
-        if_button_dalej_dobrze = false, $emit('koniec-quizz-focus')" role="button">Dalej</button>
+            if_button_dalej_dobrze = false, $emit('koniec-quizz-focus')" role="button">Dalej</button>
 
 </template>
 
@@ -274,61 +278,61 @@ function sprawdzOdpowiedz() {
     top: 100px;
 }
 
-.sr-only{
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 .planszaQuizz1nr1 {
-    background-image: url("../assets/pytanie1_level2.png");
+    background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr2 {
-    background-image: url("../assets/pytanie2_level2.png");
+    background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr3 {
-    background-image: url("../assets/pytanie3_level2.png");
+    background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr4 {
-    background-image: url("../assets/pytanie4_level2.png");
+    background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr5 {
-    background-image: url("../assets/pytanie5_level2.png");
+    background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr6 {
-    background-image: url("../assets/pytanie6_level2.png");
+    background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr7 {
-    background-image: url("../assets/pytanie7_level2.png");
+    background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr8 {
-    background-image: url("../assets/pytanie8_level2.png");
+    background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr9 {
-    background-image: url("../assets/pytanie9_level2.png");
+    background-image: url("../assets/pytanie_puste.png");
 }
 
 .planszaQuizz1nr10 {
-    background-image: url("../assets/pytanie10_level2.png");
+    background-image: url("../assets/pytanie_puste.png");
 }
 
 .pytanie1 {
     color: rgb(29, 56, 80);
-    opacity: 0;
+    opacity: 1;
     /* tutaj na potrzeby czytnika można dać 0 */
     font-size: 42px;
     font-style: bold;
@@ -336,8 +340,13 @@ function sprawdzOdpowiedz() {
     font-family: "Proxima Nova", sans-serif;
     position: absolute;
     white-space: nowrap;
-    top: 305px;
+    top: 297px;
     left: 190px;
+    padding: 20px;
+}
+
+.pytanie1:focus {
+    outline: 5px solid #9a009e !important;
 }
 
 ul {
@@ -522,6 +531,18 @@ li {
     top: 275px;
 }
 
+.info{
+  height: 273px;
+  width: 812px;
+  position: absolute;
+  left: 200px;
+  top: 50px;
+}
+
+.info:focus{
+  outline: 5px solid #08e926 !important;
+}
+
 .plansza-zle {
     background-image: url("../assets/KOMUNIKAT_zla_odp.png");
     background-size: 1212px 533px;
@@ -539,7 +560,7 @@ li {
     font-style: bold;
     font-weight: 600;
     font-family: "Proxima Nova", sans-serif;
-    top: 5px;
+   top: -90px;
 
     height: 88px;
     width: 333px;
@@ -548,11 +569,11 @@ li {
 }
 
 .naglowek-dobrze {
-    left: 410px;
+     left: 230px;
 }
 
 .naglowek-zle {
-    left: 520px;
+      left: 330px;
 }
 
 .napis-odpowiedz {
@@ -562,7 +583,7 @@ li {
     font-weight: 400;
     font-family: "Proxima Nova", sans-serif;
     white-space: nowrap;
-    top: 145px;
+   top: 80px;
 
     height: 88px;
     width: 333px;
@@ -571,11 +592,11 @@ li {
 }
 
 .napis-dobrze {
-    left: 250px;
+  left: 50px;
 }
 
 .napis-zle {
-    left: 310px;
+  left:130px;
 }
 
 .button-dalej-dobrze {
