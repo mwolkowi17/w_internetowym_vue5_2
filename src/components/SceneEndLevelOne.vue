@@ -6,7 +6,7 @@ const props = defineProps({
 });
 
 onMounted(() => {
-    const elementToFocus = document.querySelector(".gram-jeszcze-1-level-one")
+    const elementToFocus = document.querySelector(".info-win1")
     if (elementToFocus&&props.ifButtonOnFocus===true) {
         elementToFocus.focus();
     }
@@ -20,9 +20,11 @@ fanfary.play();
 
 <template>
     <div class="plansza-win-level-one">
+        <div class="info-win1" tabindex="0">
         <h1 class="naglowek">BRAWO!</h1>
         <p class="napis">Udało Ci się ukończyć <b>Poziom 1.</b></p>
         <p class="napis-2">Chcesz grać dalej?</p>
+        </div>
     </div>
     <button class="gram-jeszcze-1-level-one my-button anim1" @click="$emit('gram-dalej')" @keydown.enter="$emit('gram-dalej-focus')" role="button">Gram dalej</button>
     <button class="zakoncz-gre my-button anim1" @click="$emit('koniec-gry')" @keydown.enter="$emit('koniec-gry-focus')" role="button">Zakończ grę</button>
@@ -41,14 +43,27 @@ fanfary.play();
     z-index: 2;
 }
 
+.info-win1{
+    position: absolute;
+    height: 400px;
+    width: 1200px;
+    top: 200px;
+    left:350px
+}
+
+.info-win1:focus{
+    outline: 5px solid #08e926;
+}
+
 .naglowek {
     color: rgb(255, 255, 255);
     font-size: 100px;
     font-style: bold;
     font-weight: 600;
     font-family: "Proxima Nova", sans-serif;
-    top: 140px;
-    left: 780px;
+    margin-top: 0px;
+    top: 0px;
+    left: 430px;
     height: 88px;
     width: 333px;
     position: absolute;
@@ -63,8 +78,8 @@ fanfary.play();
     font-weight: 400;
     font-family: "Proxima Nova", sans-serif;
     white-space: nowrap;
-    top: 290px;
-    left: 480px;
+    top: 80px;
+    left: 120px;
     height: 88px;
     width: 333px;
     position: absolute;
@@ -78,8 +93,8 @@ fanfary.play();
     font-weight: 400;
     font-family: "Proxima Nova", sans-serif;
     white-space: nowrap;
-    top: 380px;
-    left: 660px;
+    top: 180px;
+    left: 330px;
     height: 88px;
     width: 333px;
     position: absolute;
