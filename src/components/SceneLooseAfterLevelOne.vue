@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 defineEmits(['jeszcze-raz','jeszcze-raz-focus' ,'koniec-gry']);
 
 const props = defineProps({
@@ -7,7 +7,7 @@ const props = defineProps({
 });
 
 onMounted(() => {
-    const elementToFocus = document.querySelector(".gram-jeszcze-1")
+    const elementToFocus = document.querySelector(".info-end1")
     if (elementToFocus&&props.ifButtonOnFocus===true) {
         elementToFocus.focus();
     }
@@ -20,8 +20,10 @@ przegrana_sound.play();
 
 <template>
     <div class="plansza-lose">
+         <div class="info-end1" tabindex="0">
         <h2 class="naglowek">Niestety przegrałeś.</h2>
         <h2 class="napis">Chcesz spróbować jeszcze raz?</h2>
+        </div>
     </div>
     <button class="gram-jeszcze-1 my-button anim1" @click="$emit('jeszcze-raz')" @keydown.enter="$emit('jeszcze-raz-focus')" role="button">Zagraj jeszcze raz</button>
     <button class="zakoncz-gre my-button anim1" @click="$emit('koniec-gry')" role="button">Zakończ grę</button>
@@ -39,14 +41,27 @@ przegrana_sound.play();
     z-index: 2;
 }
 
+.info-end1{
+    position: absolute;
+    height: 400px;
+    width: 1200px;
+    top: 200px;
+    left:350px
+}
+
+.info-end1:focus{
+    outline: 5px solid #08e926;
+}
+
+
 .naglowek {
     color: rgb(255, 255, 255);
     font-size: 100px;
     font-style: bold;
     font-weight: 600;
     font-family: "Proxima Nova", sans-serif;
-    top: 140px;
-    left: 500px;
+    top: 0px;
+    left: 160px;
     height: 88px;
     width: 333px;
     position: absolute;
@@ -61,8 +76,8 @@ przegrana_sound.play();
     font-weight: 400;
     font-family: "Proxima Nova", sans-serif;
     white-space: nowrap;
-    top: 340px;
-    left: 450px;
+    top: 200px;
+    left: 120px;
     height: 88px;
     width: 333px;
     position: absolute;

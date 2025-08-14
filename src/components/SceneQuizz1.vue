@@ -111,7 +111,7 @@ function sprawdzOdpowiedz() {
 
     const buttonVis = new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(document.querySelector(".info-dobrze"))
+        resolve(document.querySelector(".info"))
       }, 300);
     })
     if (ifButtonKoniecQuizzuOnFocus.value === true) {
@@ -130,7 +130,7 @@ function sprawdzOdpowiedz() {
 
     const buttonVis2 = new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(document.querySelector(".button-dalej-dobrze"))
+        resolve(document.querySelector(".info"))
       }, 300);
     })
     if (ifButtonKoniecQuizzuOnFocus.value === true) {

@@ -12,7 +12,7 @@ const props = defineProps({
 defineEmits(['jeszcze-raz','jeszcze-raz-focus', 'koniec-gry', 'koniec-gry-focus']);
 
 onMounted(() => {
-    const elementToFocus = document.querySelector(".gram-jeszcze-1")
+    const elementToFocus = document.querySelector(".info-win2")
     if (elementToFocus&&props.ifButtonOnFocusSceneWin) {
         elementToFocus.focus();
     }
@@ -24,8 +24,10 @@ fanfary.play();
 
 <template>
     <div class="plansza-win">
+         <div class="info-win2" tabindex="0">
        <h1 class="naglowek">GRATULACJE!</h1>
        <h2 class="napis">Udało ci się ukończyć grę.</h2>
+       </div>
     </div>
     <button class="gram-jeszcze-1 my-button anim1" @click="$emit('jeszcze-raz')" @keydown.enter="$emit('jeszcze-raz-focus')" role="img" alt="przycisk"
         aria-label="gram jeszcze raz">Zagraj jeszcze raz</button>
@@ -45,14 +47,26 @@ fanfary.play();
     z-index: 2;
 }
 
+.info-win2{
+    position: absolute;
+    height: 400px;
+    width: 1200px;
+    top: 200px;
+    left:350px
+}
+
+.info-win2:focus{
+    outline: 5px solid #08e926;
+}
+
 .naglowek{
 color: rgb(255, 255, 255);
   font-size: 100px;
   font-style: bold;
   font-weight: 600;
   font-family: "Proxima Nova", sans-serif;
-  top: 140px;
-  left: 650px;
+    top: 0px;
+    left: 280px;
   height: 88px;
   width: 333px;
   position: absolute;
@@ -67,8 +81,8 @@ color: rgb(255, 255, 255);
   font-weight: 400;
   font-family: "Proxima Nova", sans-serif;
   white-space: nowrap;
-  top: 340px;
-  left: 560px;
+  top: 180px;
+    left: 205px;
   height: 88px;
   width: 333px;
   position: absolute;

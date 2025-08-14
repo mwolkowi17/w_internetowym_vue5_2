@@ -12,7 +12,7 @@ const props = defineProps({
 })
 
 onMounted(() => {
-  const elementToFocus = document.querySelector(".przycisk_pulapka1")
+  const elementToFocus = document.querySelector(".info-trap")
   if (elementToFocus&&props.ifButtonOnFocusTrap===true) {
     elementToFocus.focus();
   }
@@ -30,8 +30,10 @@ function koniecPulapki() {
 </script>
 <template>
   <div class="pulapka1">
+     <div class="info-trap" tabindex="0">
     <h2 class="naglowek">ZASADZKA!</h2>
     <h3 class="napis">Cofasz się o dwa pola.</h3>
+    </div>
   </div>
   <button class="przycisk_pulapka1 my-button anim1" @click="$emit('koniec-pulapka'); koniecPulapki()" @keydown.enter="$emit('koniec-pulapka-focus')" role="button">Dalej</button>
 </template>
@@ -47,14 +49,26 @@ function koniecPulapki() {
   top: 250px;
 }
 
+.info-trap{
+  height: 256px;
+  width: 812px;
+  position: absolute;
+  left: 200px;
+  top: 50px;
+}
+
+.info-trap:focus{
+  outline: 5px solid #08e926 !important;
+}
+
 .naglowek {
   color: rgb(255, 255, 255);
   font-size: 100px;
   font-style: bold;
   font-weight: 600;
   font-family: "Proxima Nova", sans-serif;
-  top: 5px;
-  left: 350px;
+  top: -70px;
+  left: 150px;;
   height: 88px;
   width: 333px;
   position: absolute;
@@ -69,8 +83,8 @@ function koniecPulapki() {
   font-weight: 400;
   font-family: "Proxima Nova", sans-serif;
   white-space: nowrap;
-  top: 140px;
-  left: 280px;
+  top: 80px;;
+  left: 60px;
   height: 88px;
   width: 333px;
   position: absolute;
