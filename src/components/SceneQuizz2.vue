@@ -245,7 +245,7 @@ function sprawdzOdpowiedz() {
         odpowiedź</button>
     <div class="plansza-dobrze" v-if="if_odpowiedz_dobrze">
         <div class="info" tabindex="0">
-            <p class="naglowek-after-quizz naglowek-dobrze">BRAWO!</p>
+            <p class="naglowek-after-quizz naglowek-dobrze">Brawo!</p>
             <p class="napis-odpowiedz napis-dobrze">Prawidłowa odpowiedź.</p>
         </div>
     </div>
@@ -346,7 +346,7 @@ function sprawdzOdpowiedz() {
 }
 
 .pytanie1:focus {
-    outline: 5px solid #9a009e !important;
+      outline: 2px solid #000000 !important;
 }
 
 ul {
@@ -373,7 +373,7 @@ li {
 }
 
 .pojedyncza-odpowiedz:focus {
-    outline: 5px solid #9a009e !important;
+    outline: 2px solid #000000 !important;
 }
 
 .pole-zazn {
@@ -393,7 +393,7 @@ li {
 
 .pole-zazn:focus {
     /* outline: thick double #08e926 !important; */
-    outline: 5px solid #9a009e !important;
+     outline: 2px solid #000000 !important;
 }
 
 .pole1 {
@@ -540,7 +540,7 @@ li {
 }
 
 .info:focus{
-  outline: 5px solid #08e926 !important;
+  outline: 2px solid #ffffff !important;
 }
 
 .plansza-zle {

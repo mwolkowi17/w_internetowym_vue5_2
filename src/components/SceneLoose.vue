@@ -50,7 +50,7 @@ przegrana_sound.play();
 }
 
 .info-end2:focus{
-    outline: 5px solid #08e926;
+    outline: 2px solid #ffffff;
 }
 
 .naglowek {

@@ -22,7 +22,7 @@ export class Quests {
           ["niebezpieczne", "bezpieczne", 2],
         ],
         odpowiedz: 1,
-        tresc: "Symbol kłódki" + "\xa0 \xa0 \xa0 " + "oznacza połączenie:",
+        tresc: "Symbol kłódki",
       },
       {
         id: 2,
@@ -70,8 +70,7 @@ export class Quests {
           ["anonimowość", "emocje", 2],
         ],
         odpowiedz: 1,
-        tresc:
-          "Emotka uśmiechniętej buźki" + "\xa0  \xa0 \xa0 \xa0 " + "wyraża:",
+        tresc: "Emotka uśmiechniętej buźki",
       },
       {
         id: 9,
@@ -91,7 +90,7 @@ export class Quests {
           ["strony internetowej", "mailowym", 2],
         ],
         odpowiedz: 1,
-        tresc: "Symbolu małpy" + "\xa0  \xa0 \xa0  " + "używa się w adresie:",
+        tresc: "Symbolu małpy",
       },
       {
         id: 12,
@@ -101,7 +100,7 @@ export class Quests {
           ["węża", "małpę", 2],
         ],
         odpowiedz: 1,
-        tresc: "W Polsce symbol" + "\xa0 \xa0 \xa0 \xa0" + "oznacza:",
+        tresc: "W Polsce symbol",
       },
       {
         id: 13,

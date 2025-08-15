@@ -31,7 +31,7 @@ function koniecPulapki() {
 <template>
   <div class="pulapka1">
      <div class="info-trap" tabindex="0">
-    <h2 class="naglowek">ZASADZKA!</h2>
+    <h2 class="naglowek">Zasadzka!</h2>
     <h3 class="napis">Cofasz się o dwa pola.</h3>
     </div>
   </div>
@@ -58,7 +58,7 @@ function koniecPulapki() {
 }
 
 .info-trap:focus{
-  outline: 5px solid #08e926 !important;
+  outline: 2px solid #ffffff !important;
 }
 
 .naglowek {

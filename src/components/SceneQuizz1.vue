@@ -147,15 +147,19 @@ const pytanieToDisplay = (miejsce) => {
   let textToDisplayPytanie
   if (miejsce === 1) {
     textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>" + "<img class='klodka2' src=" + klodka1image + ">"
+     + "<span>oznacza połączenie:</span>"
   }
   else if (miejsce === 7) {
     textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>" + "<img class='buzka2' src=" + buzka1image + ">"
+    +"<span>wyraża:</span>"
   }
   else if (miejsce === 10) {
     textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>" + "<img class='malpa2' src=" + malpa1image + ">"
+    +"<span>używa się w adresie:</span>"
   }
   else if (miejsce === 12) {
     textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>" + "<img class='malpa3' src=" + malpa1image + ">"
+    +"<span>oznacza:</span>"
   }
   else {
     textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>"
@@ -169,7 +173,7 @@ const pytanieToDisplay = (miejsce) => {
     role="img" alt="tło" aria-label="pytanie">
     <h1 class="sr-only">Quizz</h1>
   </div>
-      <div class="pytanie1" v-html="pytanieToDisplay(props.miejsceNaPlanszy)" tabindex="0"></div>
+  <div class="pytanie1" v-html="pytanieToDisplay(props.miejsceNaPlanszy)" tabindex="0"></div>
 
   <!-- <ul class="lista-odpowiedzi" role="presentation"> -->
   <ul class="lista-odpowiedzi" role="list">
@@ -213,8 +217,8 @@ const pytanieToDisplay = (miejsce) => {
     odpowiedź</button>
   <div class="plansza-dobrze" v-if="if_odpowiedz_dobrze">
     <div class="info" tabindex="0">
-    <p class="naglowek-after-quizz naglowek-dobrze">BRAWO!</p>
-    <p class="napis-odpowiedz napis-dobrze">Prawidłowa odpowiedź.</p>
+      <p class="naglowek-after-quizz naglowek-dobrze">Brawo!</p>
+      <p class="napis-odpowiedz napis-dobrze">Prawidłowa odpowiedź.</p>
     </div>
   </div>
   <button class="button-dalej-dobrze my-button anim1" v-if="if_button_dalej_dobrze" @click="if_odpowiedz_dobrze = false,
@@ -225,8 +229,8 @@ const pytanieToDisplay = (miejsce) => {
       $emit('koniec-quizz-focus')" role="button">Dalej</button>
   <div class="plansza-zle" v-if="if_odpowiedz_zle">
     <div class="info" tabindex="0">
-    <p class="naglowek-after-quizz naglowek-zle">Źle!</p>
-    <p class="napis-odpowiedz napis-zle">Błędna odpowiedź.</p>
+      <p class="naglowek-after-quizz naglowek-zle">Źle!</p>
+      <p class="napis-odpowiedz napis-zle">Błędna odpowiedź.</p>
     </div>
   </div>
   <button class="button-dalej-dobrze my-button anim1" v-if="if_button_dalej_zle" @click="if_odpowiedz_zle = false,
@@ -316,33 +320,49 @@ const pytanieToDisplay = (miejsce) => {
   top: 332px;
   left: 205px;
   padding: 20px;
+  display: inline-block;
 }
 
-.pytanie1:focus{
-  outline: 5px solid #9a009e !important;
+.pytanie1:focus {
+  outline: 2px solid #000000 !important;
 }
 
-.pytanie1:deep(.klodka2){
-   position:absolute;
+.pytanie1:deep(.klodka2) {
+  /* position:absolute;
    top: 3px;
-   left: 294px; 
+   left: 294px;  */
+  position: relative;
+  margin-right: .1em;
+  margin-left: .1em;
+  margin-top: -.3em;
+  margin-bottom: -.3em;
 }
 
-.pytanie1:deep(.buzka2){
-   position:absolute;
-   top: 2px;
-   left: 555px;
-   
+.pytanie1:deep(.buzka2) {
+  position: relative;
+  /* top: 2px;
+   left: 555px; */
+   margin-right: .2em;
+  margin-left: .2em;
+  margin-top: -.3em;
+  margin-bottom: -.7em;
+
 }
 
-.pytanie1:deep(.malpa2){
-   position:absolute;
-   left: 318px;
+.pytanie1:deep(.malpa2) {
+  position: relative;
+  /* left: 318px; */
+    margin-right: .2em;
+  margin-left: .2em;
+margin-bottom: -.4em;
 }
 
-.pytanie1:deep(.malpa3){
-   position:absolute;
-   left: 350px;
+.pytanie1:deep(.malpa3) {
+  position: relative;
+      margin-right: .2em;
+  margin-left: .2em;
+margin-bottom: -.4em;
+
 }
 
 ul {
@@ -369,7 +389,7 @@ li {
 }
 
 .pojedyncza-odpowiedz:focus {
-  outline: 5px solid #9a009e !important;
+  outline: 2px solid #000000 !important;
 }
 
 .pole-zazn {
@@ -392,7 +412,7 @@ li {
 
 .pole-zazn:focus {
   /* outline: thick double #08e926 !important; */
-  outline: 5px solid #9a009e !important;
+  outline: 2px solid #000000 !important;
 }
 
 
@@ -470,7 +490,7 @@ li {
   top: 275px;
 }
 
-.info{
+.info {
   height: 273px;
   width: 812px;
   position: absolute;
@@ -478,8 +498,8 @@ li {
   top: 50px;
 }
 
-.info:focus{
-  outline: 5px solid #08e926 !important;
+.info:focus {
+  outline: 2px solid #ffffff !important;
 }
 
 .plansza-zle {
@@ -534,7 +554,7 @@ li {
 }
 
 .napis-zle {
-  left:130px;
+  left: 130px;
 }
 
 .button-dalej-dobrze {

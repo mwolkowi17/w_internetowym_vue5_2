@@ -21,9 +21,9 @@ fanfary.play();
 <template>
     <div class="plansza-win-level-one">
         <div class="info-win1" tabindex="0">
-        <h1 class="naglowek">BRAWO!</h1>
-        <p class="napis">Udało Ci się ukończyć <b>Poziom 1.</b></p>
-        <p class="napis-2">Chcesz grać dalej?</p>
+        <h1 class="naglowek">Brawo!</h1>
+        <p class="napis">Udało Ci się ukończyć <b>Poziom 1,</b></p>
+        <p class="napis-2">chcesz grać dalej?</p>
         </div>
     </div>
     <button class="gram-jeszcze-1-level-one my-button anim1" @click="$emit('gram-dalej')" @keydown.enter="$emit('gram-dalej-focus')" role="button">Gram dalej</button>
@@ -52,7 +52,7 @@ fanfary.play();
 }
 
 .info-win1:focus{
-    outline: 5px solid #08e926;
+    outline: 2px solid #ffffff;
 }
 
 .naglowek {

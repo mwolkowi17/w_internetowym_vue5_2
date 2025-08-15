@@ -56,7 +56,7 @@ fanfary.play();
 }
 
 .info-win2:focus{
-    outline: 5px solid #08e926;
+    outline: 2px solid #ffffff;
 }
 
 .naglowek{
